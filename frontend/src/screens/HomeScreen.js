@@ -1,6 +1,5 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Link } from 'react-router-dom';
-//import data from '../data';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 
@@ -18,8 +17,6 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  //const [products, setProducts] = useState([]);
-
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -35,9 +32,6 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
-
-      /*const result = await axios.get('/api/products');
-      setProducts(result.data); */
     };
     fetchData();
   }, []);
