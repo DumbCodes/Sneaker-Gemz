@@ -8,8 +8,8 @@ const data = {
       price: 170,
       countInStock: 10,
       brand: 'Nike',
-      rating: 4.5,
-      numReviews: 10,
+      rating: 3,
+      numReviews: 110,
       description:
         'High quality running and everyday shoe. Designed by Nike sold by Sneakr Gemz',
     },
@@ -22,7 +22,7 @@ const data = {
       countInStock: 20,
       brand: 'Nike',
       rating: 4.8,
-      numReviews: 10,
+      numReviews: 210,
       description:
         'High quality Party and Everyday use. Designed by Nike sold by Sneakr Gemz',
     },
@@ -34,8 +34,8 @@ const data = {
       price: 70,
       countInStock: 15,
       brand: 'Nike',
-      rating: 4.5,
-      numReviews: 14,
+      rating: 4.0,
+      numReviews: 114,
       description:
         'High quality everyday shoe for kids. Designed by Nike sold by Sneakr Gemz',
     },
@@ -48,7 +48,7 @@ const data = {
       countInStock: 5,
       brand: 'Nike',
       rating: 4.5,
-      numReviews: 10,
+      numReviews: 565,
       description:
         'Great design everyday shoe. Designed by Nike sold by Sneakr Gemz',
     },
@@ -60,8 +60,8 @@ const data = {
       price: 190,
       countInStock: 5,
       brand: 'Nike',
-      rating: 4.5,
-      numReviews: 10,
+      rating: 3.5,
+      numReviews: 227,
       description:
         'Great design everyday shoe superb flexible. Designed by Nike sold by Sneakr Gemz',
     },
@@ -74,7 +74,7 @@ const data = {
       countInStock: 0,
       brand: 'Nike',
       rating: 4.8,
-      numReviews: 10,
+      numReviews: 398,
       description:
         'Great design everyday shoe best for casual wear. Designed by Nike sold by Sneakr Gemz',
     },

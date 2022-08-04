@@ -16,6 +16,11 @@ main {
   flex: 1;
 }
 
+.btn-primary {
+  background-color: black;
+  border: none;
+}
+
 .logo {
   width: 30%;
   cursor: pointer;
@@ -31,6 +36,11 @@ main {
   border: 1px #404040 solid;
   margin: 1rem;
 }
+
+.rating span {
+  color: #ffcc00;
+}
+
 .product img {
   width: 100%;
   max-width: 400px;
