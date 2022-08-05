@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
+import CartScreen from './screens/CartScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -29,7 +30,7 @@ function App() {
                     Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="primary">
-                        {cart.cartItems.length}
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                       </Badge>
                     )}
                   </p>
@@ -42,6 +43,7 @@ function App() {
           <Container className="mt-5">
             <Routes>
               <Route path="/product/:aka" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
