@@ -63,3 +63,12 @@ main {
 .small-container {
   max-width: 600px;
 }
+
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a0;
+  color: #acacac;
+}
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid #060606;
+  color: #000000;
+}
