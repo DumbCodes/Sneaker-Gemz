@@ -16,6 +16,10 @@ main {
   flex: 1;
 }
 
+.cart-option {
+  color: white;
+}
+
 .btn-primary {
   background-color: black;
   border: none;
@@ -47,4 +51,7 @@ main {
 }
 .product-info {
   padding: 1rem;
+}
+.img-large {
+  max-width: 70%;
 }

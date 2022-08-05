@@ -1,11 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
+import Badge from 'react-bootstrap/Badge';
+import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useContext } from 'react';
+import { Store } from './Store';
 
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
@@ -17,11 +23,23 @@ function App() {
                   <img className="logo" src="./images/logo.png" alt="logo" />
                 </Navbar.Brand>
               </LinkContainer>
+              <Nav>
+                <Link to="/cart" className="nav-link">
+                  <p className="cart-option">
+                    Cart
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="primary">
+                        {cart.cartItems.length}
+                      </Badge>
+                    )}
+                  </p>
+                </Link>
+              </Nav>
             </Container>
           </Navbar>
         </header>
         <main>
-          <Container>
+          <Container className="mt-5">
             <Routes>
               <Route path="/product/:aka" element={<ProductScreen />} />
               <Route path="/" element={<HomeScreen />} />
