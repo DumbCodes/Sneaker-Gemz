@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: '1',
+      // _id: '1',
       name: 'Nike Pink',
       aka: 'nike-women-pink',
       category: 'Women',
@@ -15,7 +15,7 @@ const data = {
         'High quality running and everyday shoe. Designed by Nike sold by Sneakr Gemz',
     },
     {
-      _id: '2',
+      //  _id: '2',
       name: 'Nike White',
       aka: 'Nike-man-white',
       category: 'Men',
@@ -29,7 +29,7 @@ const data = {
         'High quality Party and Everyday use. Designed by Nike sold by Sneakr Gemz',
     },
     {
-      _id: '3',
+      //  _id: '3',
       name: 'Nike Blue',
       aka: 'nike-kids-blue',
       category: 'Kids',
@@ -43,7 +43,7 @@ const data = {
         'High quality everyday shoe for kids. Designed by Nike sold by Sneakr Gemz',
     },
     {
-      _id: '4',
+      //  _id: '4',
       name: 'Nike Colorful',
       aka: 'Nike-unisex-colorful',
       category: 'women',
@@ -57,7 +57,7 @@ const data = {
         'Great design everyday shoe. Designed by Nike sold by Sneakr Gemz',
     },
     {
-      _id: '5',
+      // _id: '5',
       name: 'Nike Curve',
       aka: 'Nike-women-curve',
       category: 'women',
@@ -71,7 +71,7 @@ const data = {
         'Great design everyday shoe superb flexible. Designed by Nike sold by Sneakr Gemz',
     },
     {
-      _id: '6',
+      // _id: '6',
       name: 'Nike Blacktik',
       aka: 'Nike-men-blacktik',
       category: 'men',
