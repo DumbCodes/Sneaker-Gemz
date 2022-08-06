@@ -21,6 +21,7 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistory from './screens/OrderHistory';
 import styled from 'styled-components';
 import AboutUs from './screens/AboutUs';
+import Booking from './screens/Booking';
 
 const MainContainer = styled.div`
   background: linear-gradient(#1313137d, #0000007d),
@@ -36,7 +37,7 @@ const NavigationBar = styled.div``;
 const RoutesContainer = styled.div``;
 
 const Footer = styled.div`
-  color: gray;
+  color: lightgray;
 `;
 
 const Logo = styled.img`
@@ -70,6 +71,9 @@ function App() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto  w-100  justify-content-end">
+                  <Link to="/booking" className="nav-link">
+                    Booking
+                  </Link>
                   <Link to="/cart" className="nav-link">
                     Cart
                     {cart.cartItems.length > 0 && (
@@ -117,6 +121,7 @@ function App() {
                 <Route path="/order/:id" element={<OrderScreen />}></Route>
                 <Route path="/orderhistory" element={<OrderHistory />}></Route>
                 <Route path="/aboutus" element={<AboutUs />}></Route>
+                <Route path="/booking" element={<Booking />}></Route>
                 <Route
                   path="/shipping"
                   element={<ShippingAddressScreen />}

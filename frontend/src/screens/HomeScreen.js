@@ -37,7 +37,6 @@ const Products = styled.div`
 const Info = styled.div`
   width: 100%;
   height: 100vh;
-  margin-top: 25px;
   display: flex;
   align-items: center;
   color: white;
@@ -67,7 +66,9 @@ const InfoTitle = styled.h1`
   margin-left: 20px;
 `;
 const Description = styled.p`
-  margin: 25px 20px;
+  margin-left: 20px;
+  margin-bottom: 100px;
+
   font-size: 20px;
   letter-spacing: 3px;
 `;
