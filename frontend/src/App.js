@@ -22,6 +22,7 @@ import OrderHistory from './screens/OrderHistory';
 import styled from 'styled-components';
 import AboutUs from './screens/AboutUs';
 import Booking from './screens/Booking';
+import { ShoppingCartOutlined } from '@mui/icons-material';
 
 const MainContainer = styled.div`
   background: linear-gradient(#1313137d, #0000007d),
@@ -33,6 +34,12 @@ const MainContainer = styled.div`
 `;
 
 const NavigationBar = styled.div``;
+
+const NavItem = styled.div`
+  margin: 0px 20px;
+  justify-content: center;
+  display: flex;
+`;
 
 const RoutesContainer = styled.div``;
 
@@ -71,39 +78,54 @@ function App() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/booking" className="nav-link">
-                    Booking
-                  </Link>
-                  <Link to="/cart" className="nav-link">
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg="danger">
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link>
-                  {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                      <LinkContainer to="/profile">
-                        <NavDropdown.Item>User Profile</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/orderhistory">
-                        <NavDropdown.Item>Order History</NavDropdown.Item>
-                      </LinkContainer>
-                      <NavDropdown.Divider />
-                      <Link
-                        className="dropdown-item"
-                        to="#signout"
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                    </NavDropdown>
-                  ) : (
-                    <Link className="nav-link" to="/signin">
-                      Sign In
+                  <NavItem>
+                    <Link to="/booking" className="nav-link">
+                      Booking
                     </Link>
-                  )}
+                  </NavItem>
+                  <NavItem>
+                    <Link to="/aboutus" className="nav-link">
+                      AboutUs
+                    </Link>
+                  </NavItem>
+
+                  <NavItem>
+                    <Link to="/cart" className="nav-link">
+                      <ShoppingCartOutlined />
+                      {cart.cartItems.length > 0 && (
+                        <Badge pill bg="primary">
+                          {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                        </Badge>
+                      )}
+                    </Link>
+                  </NavItem>
+                  <NavItem>
+                    {userInfo ? (
+                      <NavDropdown
+                        title={userInfo.name}
+                        id="basic-nav-dropdown"
+                      >
+                        <LinkContainer to="/profile">
+                          <NavDropdown.Item>User Profile</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/orderhistory">
+                          <NavDropdown.Item>Order History</NavDropdown.Item>
+                        </LinkContainer>
+                        <NavDropdown.Divider />
+                        <Link
+                          className="dropdown-item"
+                          to="#signout"
+                          onClick={signoutHandler}
+                        >
+                          Sign Out
+                        </Link>
+                      </NavDropdown>
+                    ) : (
+                      <Link className="nav-link" to="/signin">
+                        Sign In
+                      </Link>
+                    )}
+                  </NavItem>
                 </Nav>
               </Navbar.Collapse>
             </Container>

@@ -9,6 +9,7 @@ import LoadingMessage from '../components/LoadingMessage';
 import MessageBox from '../components/MessageBox';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/esm/Button';
+import { useNavigate } from 'react-router-dom';
 
 const MainContainer = styled.div`
   padding: 1rem;
@@ -26,7 +27,7 @@ const Container = styled.div`
 const Title = styled.h1`
   color: white;
   font-size: 50px;
-  margin: 20px 0px;
+  margin-bottom: 50px;
 `;
 const Products = styled.div`
   display: flex;
@@ -38,8 +39,8 @@ const Info = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
   color: white;
+  align-items: flex-start;
 `;
 
 const Wrapper = styled.div`
@@ -105,6 +106,15 @@ function HomeScreen() {
     };
     fetchData();
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    navigate('/aboutus');
+  };
+
   return (
     <MainContainer>
       <Helmet>
@@ -122,7 +132,9 @@ function HomeScreen() {
                 Repair your shoes with SneakrGemz.
               </Description>
 
-              <Button>Find Out More</Button>
+              <Button size="lg" onClick={handleClick}>
+                Find Out More
+              </Button>
             </Left>
           </Wrapper>
           <Right></Right>
