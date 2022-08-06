@@ -7,6 +7,70 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingMessage from '../components/LoadingMessage';
 import MessageBox from '../components/MessageBox';
+import styled from 'styled-components';
+import Button from 'react-bootstrap/esm/Button';
+
+const MainContainer = styled.div`
+  padding: 1rem;
+  flex: 1;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+`;
+
+const Title = styled.h1`
+  color: white;
+  font-size: 50px;
+  margin: 20px 0px;
+`;
+const Products = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const Info = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  color: white;
+`;
+
+const Wrapper = styled.div`
+  flex: 1;
+`;
+
+// Left Side
+
+const Left = styled.div`
+  flex: 0.3;
+  width: 100%;
+  height: 100%;
+`;
+
+//Right Side
+const Right = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 1.7;
+`;
+const InfoTitle = styled.h1`
+  font-size: 40px;
+  margin-bottom: 100px;
+  margin-left: 20px;
+`;
+const Description = styled.p`
+  margin: 25px 20px;
+  font-size: 20px;
+  letter-spacing: 3px;
+`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -41,12 +105,30 @@ function HomeScreen() {
     fetchData();
   }, []);
   return (
-    <div>
+    <MainContainer>
       <Helmet>
         <title>Sneakr Gemz</title>
       </Helmet>
-      <h1>Featured Products</h1>
-      <div className="products">
+
+      <Container>
+        <Info>
+          <Wrapper>
+            <Left>
+              <InfoTitle> Style Meets Comfort </InfoTitle>
+
+              <Description>
+                One Stop for all your sneaker needs. Buy, Customize, Clean and
+                Repair your shoes with SneakrGemz.
+              </Description>
+
+              <Button>Find Out More</Button>
+            </Left>
+          </Wrapper>
+          <Right></Right>
+        </Info>
+      </Container>
+      <Title>Featured Products</Title>
+      <Products>
         {loading ? (
           <LoadingMessage />
         ) : error ? (
@@ -60,8 +142,8 @@ function HomeScreen() {
             ))}
           </Row>
         )}
-      </div>
-    </div>
+      </Products>
+    </MainContainer>
   );
 }
 export default HomeScreen;

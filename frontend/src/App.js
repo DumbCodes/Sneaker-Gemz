@@ -18,6 +18,31 @@ import RegisterScreen from './screens/RegisterScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrder from './screens/PlaceOrder';
 import OrderScreen from './screens/OrderScreen';
+import OrderHistory from './screens/OrderHistory';
+import styled from 'styled-components';
+import AboutUs from './screens/AboutUs';
+
+const MainContainer = styled.div`
+  background: linear-gradient(#1313137d, #0000007d),
+    url('./images/bgimg.jpg') center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 1rem;
+  flex: 1;
+`;
+
+const NavigationBar = styled.div``;
+
+const RoutesContainer = styled.div``;
+
+const Footer = styled.div`
+  color: gray;
+`;
+
+const Logo = styled.img`
+  width: 40%;
+  cursor: pointer;
+`;
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -33,71 +58,80 @@ function App() {
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
         <ToastContainer position="bottom-center" limit={1} />
-        <header>
+        <NavigationBar>
           <Navbar bg="dark" variant="dark">
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>
-                  <img className="logo" src="./images/logo.png" alt="logo" />
+                  <Logo src="./images/logo.png" alt="Sneakr Gemz" />
                 </Navbar.Brand>
               </LinkContainer>
-              <Nav>
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="primary">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </Badge>
-                  )}
-                </Link>
 
-                {userInfo ? (
-                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    Sign In
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto  w-100  justify-content-end">
+                  <Link to="/cart" className="nav-link">
+                    Cart
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="danger">
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      </Badge>
+                    )}
                   </Link>
-                )}
-              </Nav>
+                  {userInfo ? (
+                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderhistory">
+                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                      </LinkContainer>
+                      <NavDropdown.Divider />
+                      <Link
+                        className="dropdown-item"
+                        to="#signout"
+                        onClick={signoutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </NavDropdown>
+                  ) : (
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  )}
+                </Nav>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
-        </header>
-        <main>
-          <Container className="mt-5">
-            <Routes>
-              <Route path="/product/:aka" element={<ProductScreen />} />
-              <Route path="/cart" element={<CartScreen />} />
-              <Route path="/signin" element={<LoginScreen />} />
-              <Route path="/signup" element={<RegisterScreen />} />
-              <Route path="/placeorder" element={<PlaceOrder />} />
-              <Route path="/order/:id" element={<OrderScreen />}></Route>
-              <Route
-                path="/shipping"
-                element={<ShippingAddressScreen />}
-              ></Route>
-              <Route path="/payment" element={<PaymentScreen />}></Route>
-              <Route path="/" element={<HomeScreen />} />
-            </Routes>
-          </Container>
-        </main>
-        <footer>
-          <div className="text-center">Sneakr Gemz | All Rights Reserved </div>
-        </footer>
+        </NavigationBar>
+        <MainContainer>
+          <RoutesContainer>
+            <Container className="mt-5">
+              <Routes>
+                <Route path="/product/:aka" element={<ProductScreen />} />
+                <Route path="/cart" element={<CartScreen />} />
+                <Route path="/signin" element={<LoginScreen />} />
+                <Route path="/signup" element={<RegisterScreen />} />
+                <Route path="/placeorder" element={<PlaceOrder />} />
+                <Route path="/order/:id" element={<OrderScreen />}></Route>
+                <Route path="/orderhistory" element={<OrderHistory />}></Route>
+                <Route path="/aboutus" element={<AboutUs />}></Route>
+                <Route
+                  path="/shipping"
+                  element={<ShippingAddressScreen />}
+                ></Route>
+                <Route path="/payment" element={<PaymentScreen />}></Route>
+                <Route path="/" element={<HomeScreen />} />
+              </Routes>
+            </Container>
+          </RoutesContainer>
+          <Footer>
+            <div className="text-center">
+              Sneakr Gemz | All Rights Reserved{' '}
+            </div>
+          </Footer>
+        </MainContainer>
       </div>
     </BrowserRouter>
   );
