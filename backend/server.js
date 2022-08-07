@@ -12,7 +12,7 @@ dotenv.config();
 mongoose
   .connect(process.env.MONGO_DB)
   .then(() => {
-    console.log('Connected to Database');
+    console.log('Connected to Atlas Database');
   })
   .catch((err) => {
     console.log(err.message);

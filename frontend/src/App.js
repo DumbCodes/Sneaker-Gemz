@@ -43,6 +43,8 @@ const NavItem = styled.div`
 
 const RoutesContainer = styled.div``;
 
+const FooterText = styled.div``;
+
 const Footer = styled.div`
   color: lightgray;
 `;
@@ -146,9 +148,10 @@ function App() {
                 <Route path="/signup" element={<RegisterScreen />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
                 <Route path="/order/:id" element={<OrderScreen />}></Route>
-                <Route path="/orderhistory" element={<OrderHistory />}></Route>
                 <Route path="/aboutus" element={<AboutUs />}></Route>
                 <Route path="/booking" element={<Booking />}></Route>
+                <Route path="/orderhistory" element={<OrderHistory />}></Route>
+
                 <Route
                   path="/shipping"
                   element={<ShippingAddressScreen />}
@@ -159,9 +162,9 @@ function App() {
             </Container>
           </RoutesContainer>
           <Footer>
-            <div className="text-center">
+            <FooterText className="text-center">
               Sneakr Gemz | All Rights Reserved{' '}
-            </div>
+            </FooterText>
           </Footer>
         </MainContainer>
       </div>
