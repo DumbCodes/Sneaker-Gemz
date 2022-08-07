@@ -65,10 +65,10 @@ main {
 }
 
 .checkout-steps > div {
-  border-bottom: 0.2rem solid #a0a0a0;
-  color: #acacac;
+  border-bottom: 0.2rem solid #828282;
+  color: #828282;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #060606;
+  border-bottom: 0.2rem solid #000000;
   color: #000000;
 }

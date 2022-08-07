@@ -8,6 +8,21 @@ import { useContext, useEffect, useState } from 'react';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../util';
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  background: linear-gradient(#ffffff83, #d4d4d4ac);
+  height: 70vh;
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 50px;
+`;
 
 export default function RegisterScreen() {
   const navigate = useNavigate();
@@ -49,6 +64,9 @@ export default function RegisterScreen() {
   }, [navigate, redirect, userInfo]);
 
   return (
+    <MainContainer>
+      <Wrapper>
+    
     <Container className="small-container">
       <Helmet>
         <title>Sign Up</title>
@@ -93,5 +111,7 @@ export default function RegisterScreen() {
         </div>
       </Form>
     </Container>
+      </Wrapper>
+      </MainContainer>
   );
 }

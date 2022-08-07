@@ -8,7 +8,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  background: linear-gradient(#ffffff83, #d4d4d4ac);
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
   padding: 20px;
   margin-bottom: 30px;
 `;

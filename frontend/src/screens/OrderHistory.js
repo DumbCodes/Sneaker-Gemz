@@ -7,6 +7,13 @@ import { Store } from '../Store';
 import { getError } from '../util';
 import LoadingMessage from '../components/LoadingMessage';
 import Button from 'react-bootstrap/esm/Button';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+  margin-bottom: 30px;
+`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -50,7 +57,7 @@ export default function OrderHistoryScreen() {
     fetchData();
   }, [userInfo]);
   return (
-    <div>
+    <Wrapper>
       <Helmet>
         <title>Order History</title>
       </Helmet>
@@ -87,7 +94,7 @@ export default function OrderHistoryScreen() {
                 <td>
                   <Button
                     type="button"
-                    variant="light"
+                    variant="dark"
                     onClick={() => {
                       navigate(`/order/${order._id}`);
                     }}
@@ -100,6 +107,6 @@ export default function OrderHistoryScreen() {
           </tbody>
         </table>
       )}
-    </div>
+    </Wrapper>
   );
 }

@@ -13,6 +13,9 @@ import LoadingMessage from '../components/LoadingMessage';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../util';
 import { Store } from '../Store';
+import styled from 'styled-components';
+
+const Wrapper = styled.div``;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -73,7 +76,7 @@ function ProductScreen() {
   ) : error ? (
     <MessageBox variant="danger"> {error}</MessageBox>
   ) : (
-    <div>
+    <Wrapper>
       <Row>
         <Col md={6}>
           <img
@@ -140,7 +143,7 @@ function ProductScreen() {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Wrapper>
   );
 }
 export default ProductScreen;

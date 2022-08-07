@@ -13,6 +13,9 @@ import { Store } from '../Store';
 import { getError } from '../util';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { toast } from 'react-toastify';
+import styled from 'styled-components';
+
+const Title = styled.h1``;
 
 function reducer(state, action) {
   switch (action.type) {
@@ -136,10 +139,13 @@ export default function OrderScreen() {
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div>
-      <Helmet>
-        <title>Order {orderId}</title>
-      </Helmet>
-      <h1 className="my-3">Order {orderId}</h1>
+      <Helmet>Order {orderId}</Helmet>
+
+      <title>Order {orderId}</title>
+
+      <Title className="my-3" style={{ color: 'white' }}>
+        Order {orderId}
+      </Title>
       <Row>
         <Col md={8}>
           <Card className="mb-3">

@@ -5,6 +5,14 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { Store } from '../Store';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 70vh;
+`;
 
 export default function PaymentScreen() {
   const navigate = useNavigate();
@@ -29,7 +37,7 @@ export default function PaymentScreen() {
     navigate('/placeorder');
   };
   return (
-    <div>
+    <Wrapper>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <div className="container small-container">
         <Helmet>
@@ -62,6 +70,6 @@ export default function PaymentScreen() {
           </div>
         </Form>
       </div>
-    </div>
+    </Wrapper>
   );
 }

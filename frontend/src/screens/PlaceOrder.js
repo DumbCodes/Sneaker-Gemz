@@ -12,6 +12,13 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { toast } from 'react-toastify';
 import { getError } from '../util';
 import LoadingMessage from '../components/LoadingMessage';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+  margin-bottom: 30px;
+`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -82,7 +89,7 @@ export default function PlaceOrder() {
   }, [cart, navigate]);
 
   return (
-    <div>
+    <Wrapper>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
         <title>Preview Order</title>
@@ -190,6 +197,6 @@ export default function PlaceOrder() {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Wrapper>
   );
 }
