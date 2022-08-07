@@ -1,13 +1,19 @@
 Sneakr Gemz
 
-This Project is completed by group CLAY
+This Project is completed by group CLAY. Comprising of 5 group members:
+
+    Sandesh Poudel          30392307
+    Atal Shrestha           30392751
+    Salil K C               30404189
+    Ronik Maharjan          30385829
+    Sunita Poudel           30391255
 
 This project is being completed using MERN STACK:
 
-Mongo DB,
-Express,
-React,
-Node JS
+    Mongo DB,
+    Express,
+    React,
+    Node JS
 
 Dependencies that were used to build the frontend of the website are:
 
@@ -27,7 +33,8 @@ Dependencies that were used to build the frontend of the website are:
     react-toastify:                     9.0.7,
     styled-components:                  5.3.5,
     use-reducer-logger:                 1.0.2,
-    web-vitals:                         2.1.4
+    web-vitals:                         2.1.4,
+    mdb-react-ui-kit:                   4.1.0
 
 Dependencies that were used to build the backend of the website are:
 
