@@ -1,6 +1,6 @@
-Sneakr Gemz
+<h1>Sneakr Gemz</h1>
 
-This Project is completed by group CLAY. Comprising of 5 group members:
+This Project is completed by group CLAY. The group comprising of 5 group members:
 
     Sandesh Poudel          30392307
     Atal Shrestha           30392751
