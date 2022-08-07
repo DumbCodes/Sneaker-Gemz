@@ -1,3 +1,4 @@
+import { MDBFooter, MDBContainer, MDBIcon } from 'mdb-react-ui-kit';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,12 +18,15 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrder from './screens/PlaceOrder';
+
 import OrderScreen from './screens/OrderScreen';
 import OrderHistory from './screens/OrderHistory';
 import styled from 'styled-components';
 import AboutUs from './screens/AboutUs';
 import Booking from './screens/Booking';
 import { ShoppingCartOutlined } from '@mui/icons-material';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
 
 const MainContainer = styled.div`
   background: linear-gradient(#1313137d, #0000007d),
@@ -42,8 +46,6 @@ const NavItem = styled.div`
 `;
 
 const RoutesContainer = styled.div``;
-
-const FooterText = styled.div``;
 
 const Footer = styled.div`
   color: lightgray;
@@ -161,12 +163,68 @@ function App() {
               </Routes>
             </Container>
           </RoutesContainer>
-          <Footer>
-            <FooterText className="text-center">
-              Sneakr Gemz | All Rights Reserved{' '}
-            </FooterText>
-          </Footer>
         </MainContainer>
+        <MDBFooter className="bg-dark text-white">
+          <MDBContainer className="p-4">
+            <Row>
+              <Col lg="6" md="12" className="mb-4 mb-md-0">
+                <h5 className="text-uppercase">Sneakr Gemz</h5>
+
+                <p>
+                  One Stop for all your sneaker needs. <br />
+                  Buy, Customize, Clean and Repair your shoes with SneakrGemz.!
+                </p>
+              </Col>
+
+              <Col lg="3" md="6" className="mb-4 mb-md-0">
+                <h5 className="text-uppercase mb-4">Useful Links</h5>
+
+                <ul className="list-unstyled mb-0">
+                  <li>
+                    <Link to="/" className="nav-link mb-3">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/booking" className="nav-link mb-3">
+                      Booking
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/aboutus" className="nav-link mb-3">
+                      About Us
+                    </Link>
+                  </li>
+                </ul>
+              </Col>
+
+              <Col md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">Contact Us</h6>
+                <p>
+                  <MDBIcon icon="home" className="me-2" />
+                  6/127 Rundle Mall, Adelaide SA 5000
+                </p>
+                <p>
+                  <MDBIcon icon="envelope" className="me-3" />
+                  sneakrgemz@gmail.com
+                </p>
+                <p>
+                  <MDBIcon icon="phone" className="me-3" /> + 61 123 456 789
+                </p>
+                <p>
+                  <MDBIcon icon="print" className="me-3" /> + 61 123 456 789
+                </p>
+              </Col>
+            </Row>
+          </MDBContainer>
+
+          <Footer
+            className="text-center p-3"
+            style={{ backgroundColor: 'rgba(1, 1, 1, 0.7)' }}
+          >
+            © Copyright 2022 : SNEAKR GEMZ | All Rights Reserved
+          </Footer>
+        </MDBFooter>
       </div>
     </BrowserRouter>
   );
