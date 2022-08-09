@@ -72,3 +72,12 @@ main {
   border-bottom: 0.2rem solid #000000;
   color: #000000;
 }
+
+.productwrapper {
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+}
+.orderwrapper {
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+}

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 
 const Container = styled.div`
   display: flex;
@@ -21,29 +22,6 @@ const Title = styled.h1`
   margin-bottom: 10px;
 `;
 
-const Form = styled.form`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-`;
-
-const Input = styled.input`
-  flex: 1;
-  //min-width: 40%;
-  outline: none;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #dedede;
-  margin: 10px 10px;
-  font-size: 14px;
-`;
-
-const Agreement = styled.span`
-  font-size: 14px;
-  margin: 20px 0px;
-`;
-
 const Button = styled.button`
   border: none;
   outline: none;
@@ -59,7 +37,7 @@ const Button = styled.button`
   margin: 5px;
 `;
 
-const Booking = () => {
+const BookingScreen = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -97,25 +75,39 @@ const Booking = () => {
       <Wrapper>
         <Title> Book an Appointment </Title>
         <Form ref={form} onSubmit={(sendEmail, handleSubmit)}>
-          <Input placeholder="Name" name="first_name" />
-          <Input placeholder="Last Name" name="last_name" />
-          <Input placeholder="Email" name="email" />
-          <p>Enter Booking Date</p>
-          <Input type="date" placeholder="Booking date" name="date" />
-          <Input placeholder="Reason for booking" name="message" />
-
-          <Agreement>
-            You can cancel or update booking via the confirmation email sent to
-            you.
-          </Agreement>
-
-          <Button value="send" type="submit">
-            Submit
-          </Button>
+          <Form.Group className="mb-3">
+            <Form.Control placeholder="Name" name="first_name" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control placeholder="Last Name" name="last_name" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control placeholder="Email" name="email" type="email" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Enter Booking Date</Form.Label>
+          </Form.Group>s
+          <Form.Group className="mb-3">
+            <Form.Control type="date" placeholder="Booking date" name="date" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control placeholder="Reason for booking" name="message" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>
+              You can cancel or update booking via the confirmation email sent
+              to you.
+            </Form.Label>
+          </Form.Group>
+          <div>
+            <Button value="send" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
       </Wrapper>
     </Container>
   );
 };
 
-export default Booking;
+export default BookingScreen;

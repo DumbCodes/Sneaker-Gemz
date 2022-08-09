@@ -76,7 +76,7 @@ function ProductScreen() {
   ) : error ? (
     <MessageBox variant="danger"> {error}</MessageBox>
   ) : (
-    <Wrapper>
+    <Wrapper className="productwrapper">
       <Row>
         <Col md={6}>
           <img

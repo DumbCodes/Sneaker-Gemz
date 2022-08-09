@@ -23,10 +23,12 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistory from './screens/OrderHistory';
 import styled from 'styled-components';
 import AboutUs from './screens/AboutUs';
-import Booking from './screens/Booking';
+import Booking from './screens/BookingScreen';
 import { ShoppingCartOutlined } from '@mui/icons-material';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
+
+const AppJsContainer = styled.div``;
 
 const MainContainer = styled.div`
   background: linear-gradient(#1313137d, #0000007d),
@@ -68,7 +70,7 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <div className="d-flex flex-column site-container">
+      <AppJsContainer className="d-flex flex-column site-container">
         <ToastContainer position="bottom-center" limit={1} />
         <NavigationBar>
           <Navbar bg="dark" variant="dark">
@@ -225,7 +227,7 @@ function App() {
             © Copyright 2022 : SNEAKR GEMZ | All Rights Reserved
           </Footer>
         </MDBFooter>
-      </div>
+      </AppJsContainer>
     </BrowserRouter>
   );
 }
