@@ -86,7 +86,7 @@ const BookingScreen = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Enter Booking Date</Form.Label>
-          </Form.Group>s
+          </Form.Group>
           <Form.Group className="mb-3">
             <Form.Control type="date" placeholder="Booking date" name="date" />
           </Form.Group>
