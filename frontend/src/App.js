@@ -27,6 +27,7 @@ import Booking from './screens/BookingScreen';
 import { ShoppingCartOutlined } from '@mui/icons-material';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
+import AnnouncementScreen from './screens/AnnouncementScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -77,7 +78,11 @@ function App() {
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>
-                  <Logo src="./images/logo.png" alt="Sneakr Gemz" />
+                  <Logo
+                    src="./images/logo.png"
+                    alt="Sneakr Gemz"
+                    className="logo"
+                  />
                 </Navbar.Brand>
               </LinkContainer>
 
@@ -155,6 +160,10 @@ function App() {
                 <Route path="/aboutus" element={<AboutUs />}></Route>
                 <Route path="/booking" element={<Booking />}></Route>
                 <Route path="/orderhistory" element={<OrderHistory />}></Route>
+                <Route
+                  path="/announcement"
+                  element={<AnnouncementScreen />}
+                ></Route>
 
                 <Route
                   path="/shipping"
@@ -174,7 +183,7 @@ function App() {
 
                 <p>
                   One Stop for all your sneaker needs. <br />
-                  Buy, Customize, Clean and Repair your shoes with SneakrGemz.!
+                  Buy, Customize, Clean and Repair your shoes with Sneakr Gemz.!
                 </p>
               </Col>
 
