@@ -39,6 +39,14 @@ const MainContainer = styled.div`
   padding: 1rem;
   flex: 1;
 `;
+const Announcement = styled.div`
+  height: 40px;
+  background-color: lightgreen;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+`;
 
 const NavigationBar = styled.div``;
 
@@ -57,6 +65,12 @@ const Footer = styled.div`
 const Logo = styled.img`
   width: 40%;
   cursor: pointer;
+`;
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  margin-right: 1em;
 `;
 
 function App() {
@@ -147,6 +161,14 @@ function App() {
             </Container>
           </Navbar>
         </NavigationBar>
+        <Link to="/announcement">
+          <Announcement>
+            <marquee scrollamount="20" behavior="scroll">
+              <Button>New Product Release Date Announced. ! .</Button>
+              <Button>Checkout new upcoming products.</Button>
+            </marquee>
+          </Announcement>
+        </Link>
         <MainContainer>
           <RoutesContainer>
             <Container className="mt-5">

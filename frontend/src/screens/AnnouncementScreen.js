@@ -74,6 +74,7 @@ const Product = styled.div`
   border: 1px #202020 solid;
   margin: 1rem;
 `;
+
 const ProductInfo = styled.div`
   padding: 1rem;
   background: #fff;
