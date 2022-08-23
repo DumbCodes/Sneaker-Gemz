@@ -29,6 +29,10 @@ import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import AnnouncementScreen from './screens/AnnouncementScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import ProtectedRoute from './components/ProtectedRoute';
+import DashboardScreen from './screens/DashboardScreen';
+import AdminRoute from './components/AdminRoute';
+import OrderHistoryScreen from './screens/OrderHistory';
 
 const AppJsContainer = styled.div``;
 
@@ -157,6 +161,30 @@ function App() {
                         Sign In
                       </Link>
                     )}
+                    {userInfo && userInfo.isAdmin && (
+                      <NavDropdown title="Admin" id="admin-nav-dropdown">
+                        <LinkContainer to="/admin/dashboard">
+                          <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/productlist">
+                          <NavDropdown.Item>Products</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/orderlist">
+                          <NavDropdown.Item>Orders</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/userlist">
+                          <NavDropdown.Item>Users</NavDropdown.Item>
+                        </LinkContainer>
+                        <NavDropdown.Divider />
+                        <Link
+                          className="dropdown-item"
+                          to="#signout"
+                          onClick={signoutHandler}
+                        >
+                          Sign Out
+                        </Link>
+                      </NavDropdown>
+                    )}
                   </NavItem>
                 </Nav>
               </Navbar.Collapse>
@@ -180,11 +208,32 @@ function App() {
                 <Route path="/signin" element={<LoginScreen />} />
                 <Route path="/signup" element={<RegisterScreen />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
-                <Route path="/order/:id" element={<OrderScreen />}></Route>
+                <Route
+                  path="/order/:id"
+                  element={
+                    <ProtectedRoute>
+                      <OrderScreen />
+                    </ProtectedRoute>
+                  }
+                ></Route>
                 <Route path="/aboutus" element={<AboutUs />}></Route>
                 <Route path="/booking" element={<Booking />}></Route>
-                <Route path="/profile" element={<ProfileScreen />} />
-                <Route path="/orderhistory" element={<OrderHistory />}></Route>
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <ProfileScreen />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/orderhistory"
+                  element={
+                    <ProtectedRoute>
+                      <OrderHistoryScreen />
+                    </ProtectedRoute>
+                  }
+                ></Route>
                 <Route
                   path="/announcement"
                   element={<AnnouncementScreen />}
@@ -195,6 +244,14 @@ function App() {
                   element={<ShippingAddressScreen />}
                 ></Route>
                 <Route path="/payment" element={<PaymentScreen />}></Route>
+                <Route
+                  path="/admin/dashboard"
+                  element={
+                    <AdminRoute>
+                      <DashboardScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
                 <Route path="/" element={<HomeScreen />} />
               </Routes>
             </Container>

@@ -93,7 +93,7 @@ export default function ProfileScreen() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            disabled
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
