@@ -26,6 +26,7 @@ const Timer = styled.section`
   padding-top: 2em;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.3);
 `;
 
 const HeadingContainer = styled.div`
@@ -89,7 +90,7 @@ const AnnouncementScreen = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countDate = new Date('September 30,2022').getTime();
+    const countDate = new Date('November 30,2022').getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();

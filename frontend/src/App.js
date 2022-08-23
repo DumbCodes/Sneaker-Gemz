@@ -28,6 +28,7 @@ import { ShoppingCartOutlined } from '@mui/icons-material';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import AnnouncementScreen from './screens/AnnouncementScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -82,6 +83,7 @@ function App() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
   };
   return (
     <BrowserRouter>
@@ -181,6 +183,7 @@ function App() {
                 <Route path="/order/:id" element={<OrderScreen />}></Route>
                 <Route path="/aboutus" element={<AboutUs />}></Route>
                 <Route path="/booking" element={<Booking />}></Route>
+                <Route path="/profile" element={<ProfileScreen />} />
                 <Route path="/orderhistory" element={<OrderHistory />}></Route>
                 <Route
                   path="/announcement"
