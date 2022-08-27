@@ -86,3 +86,16 @@ img.logo {
   width: 50%;
   height: 20%;
 }
+
+.producttable {
+  background: linear-gradient(#ffffffc0, #d4d4d4ac);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.productlisttitle {
+  color: white;
+}
+.pagenumber {
+  color: white;
+}

@@ -11,7 +11,7 @@ const data = {
     {
       name: 'User',
       email: 'user@example.com',
-      password: bcrypt.hashSync('asdfg'),
+      password: bcrypt.hashSync('123456'),
       isAdmin: false,
     },
   ],
@@ -34,7 +34,7 @@ const data = {
     {
       name: 'Nike Colorful',
       aka: 'Nike-unisex-colorful',
-      category: 'women',
+      category: 'Women',
       image: '/images/p4.jpg',
       price: 65,
       countInStock: 5,
@@ -73,12 +73,12 @@ const data = {
 
     {
       name: 'Fila Red',
-      aka: 'Fila-men-red',
-      category: 'Men',
+      aka: 'Fila-women-red',
+      category: 'Women',
       image: '/images/p7.jpg',
       price: 115,
       countInStock: 8,
-      brand: 'Adidas',
+      brand: 'Fila',
       rating: 4.6,
       numReviews: 110,
       description:
@@ -127,8 +127,8 @@ const data = {
     },
     {
       name: 'Adidas Yellow',
-      aka: 'adidas-men-yellow',
-      category: 'Men',
+      aka: 'adidas-women-yellow',
+      category: 'Women',
       image: '/images/p8.jpg',
       price: 140,
       countInStock: 25,

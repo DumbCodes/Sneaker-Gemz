@@ -33,6 +33,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import OrderHistoryScreen from './screens/OrderHistory';
+import ProductListScreen from './screens/ProductListScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -166,13 +167,13 @@ function App() {
                         <LinkContainer to="/admin/dashboard">
                           <NavDropdown.Item>Dashboard</NavDropdown.Item>
                         </LinkContainer>
-                        <LinkContainer to="/admin/productlist">
+                        <LinkContainer to="/admin/products">
                           <NavDropdown.Item>Products</NavDropdown.Item>
                         </LinkContainer>
-                        <LinkContainer to="/admin/orderlist">
+                        <LinkContainer to="/admin/orders">
                           <NavDropdown.Item>Orders</NavDropdown.Item>
                         </LinkContainer>
-                        <LinkContainer to="/admin/userlist">
+                        <LinkContainer to="/admin/users">
                           <NavDropdown.Item>Users</NavDropdown.Item>
                         </LinkContainer>
                         <NavDropdown.Divider />
@@ -249,6 +250,14 @@ function App() {
                   element={
                     <AdminRoute>
                       <DashboardScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
+                <Route
+                  path="/admin/products"
+                  element={
+                    <AdminRoute>
+                      <ProductListScreen />
                     </AdminRoute>
                   }
                 ></Route>
