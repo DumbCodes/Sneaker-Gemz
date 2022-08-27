@@ -138,19 +138,16 @@ function App() {
                     </Link>
                   </NavItem>
                   <NavItem>
-                    {userInfo && userInfo.isAdmin && (
-                      <NavDropdown title="Admin" id="admin-nav-dropdown">
-                        <LinkContainer to="/admin/dashboard">
-                          <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    {userInfo ? (
+                      <NavDropdown
+                        title={userInfo.name}
+                        id="basic-nav-dropdown"
+                      >
+                        <LinkContainer to="/profile">
+                          <NavDropdown.Item>User Profile</NavDropdown.Item>
                         </LinkContainer>
-                        <LinkContainer to="/admin/products">
-                          <NavDropdown.Item>Products</NavDropdown.Item>
-                        </LinkContainer>
-                        <LinkContainer to="/admin/orders">
-                          <NavDropdown.Item>Orders</NavDropdown.Item>
-                        </LinkContainer>
-                        <LinkContainer to="/admin/users">
-                          <NavDropdown.Item>Users</NavDropdown.Item>
+                        <LinkContainer to="/orderhistory">
+                          <NavDropdown.Item>Order History</NavDropdown.Item>
                         </LinkContainer>
                         <NavDropdown.Divider />
                         <Link
@@ -160,6 +157,29 @@ function App() {
                         >
                           Sign Out
                         </Link>
+                      </NavDropdown>
+                    ) : (
+                      <Link className="nav-link" to="/signin">
+                        Sign In
+                      </Link>
+                    )}
+                    {userInfo && userInfo.isAdmin && (
+                      <NavDropdown title="Action" id="admin-nav-dropdown">
+                        <LinkContainer to="/admin/dashboard">
+                          <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                        </LinkContainer>
+                        <NavDropdown.Divider />
+                        <LinkContainer to="/admin/products">
+                          <NavDropdown.Item>Products</NavDropdown.Item>
+                        </LinkContainer>
+                        <NavDropdown.Divider />
+                        <LinkContainer to="/admin/orders">
+                          <NavDropdown.Item>Orders</NavDropdown.Item>
+                        </LinkContainer>
+                        <NavDropdown.Divider />
+                        <LinkContainer to="/admin/users">
+                          <NavDropdown.Item>Users</NavDropdown.Item>
+                        </LinkContainer>
                       </NavDropdown>
                     )}
                   </NavItem>
