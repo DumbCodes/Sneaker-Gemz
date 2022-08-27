@@ -18,9 +18,7 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrder from './screens/PlaceOrder';
-
 import OrderScreen from './screens/OrderScreen';
-import OrderHistory from './screens/OrderHistory';
 import styled from 'styled-components';
 import AboutUs from './screens/AboutUs';
 import Booking from './screens/BookingScreen';
@@ -36,6 +34,7 @@ import OrderHistoryScreen from './screens/OrderHistory';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen.js';
 import OrderListScreen from './screens/OrderListScreen';
+import UserListScreen from './screens/UserListScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -139,31 +138,6 @@ function App() {
                     </Link>
                   </NavItem>
                   <NavItem>
-                    {userInfo ? (
-                      <NavDropdown
-                        title={userInfo.name}
-                        id="basic-nav-dropdown"
-                      >
-                        <LinkContainer to="/profile">
-                          <NavDropdown.Item>User Profile</NavDropdown.Item>
-                        </LinkContainer>
-                        <LinkContainer to="/orderhistory">
-                          <NavDropdown.Item>Order History</NavDropdown.Item>
-                        </LinkContainer>
-                        <NavDropdown.Divider />
-                        <Link
-                          className="dropdown-item"
-                          to="#signout"
-                          onClick={signoutHandler}
-                        >
-                          Sign Out
-                        </Link>
-                      </NavDropdown>
-                    ) : (
-                      <Link className="nav-link" to="/signin">
-                        Sign In
-                      </Link>
-                    )}
                     {userInfo && userInfo.isAdmin && (
                       <NavDropdown title="Admin" id="admin-nav-dropdown">
                         <LinkContainer to="/admin/dashboard">
@@ -269,6 +243,15 @@ function App() {
                   element={
                     <AdminRoute>
                       <ProductListScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
+
+                <Route
+                  path="/admin/users"
+                  element={
+                    <AdminRoute>
+                      <UserListScreen />
                     </AdminRoute>
                   }
                 ></Route>
