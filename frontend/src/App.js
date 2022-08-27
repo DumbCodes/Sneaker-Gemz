@@ -34,6 +34,8 @@ import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import OrderHistoryScreen from './screens/OrderHistory';
 import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen.js';
+import OrderListScreen from './screens/OrderListScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -209,6 +211,7 @@ function App() {
                 <Route path="/signin" element={<LoginScreen />} />
                 <Route path="/signup" element={<RegisterScreen />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
+
                 <Route
                   path="/order/:id"
                   element={
@@ -217,8 +220,11 @@ function App() {
                     </ProtectedRoute>
                   }
                 ></Route>
+
                 <Route path="/aboutus" element={<AboutUs />}></Route>
+
                 <Route path="/booking" element={<Booking />}></Route>
+
                 <Route
                   path="/profile"
                   element={
@@ -227,6 +233,7 @@ function App() {
                     </ProtectedRoute>
                   }
                 />
+
                 <Route
                   path="/orderhistory"
                   element={
@@ -235,6 +242,7 @@ function App() {
                     </ProtectedRoute>
                   }
                 ></Route>
+
                 <Route
                   path="/announcement"
                   element={<AnnouncementScreen />}
@@ -244,7 +252,9 @@ function App() {
                   path="/shipping"
                   element={<ShippingAddressScreen />}
                 ></Route>
+
                 <Route path="/payment" element={<PaymentScreen />}></Route>
+
                 <Route
                   path="/admin/dashboard"
                   element={
@@ -253,6 +263,7 @@ function App() {
                     </AdminRoute>
                   }
                 ></Route>
+
                 <Route
                   path="/admin/products"
                   element={
@@ -261,6 +272,25 @@ function App() {
                     </AdminRoute>
                   }
                 ></Route>
+
+                <Route
+                  path="/admin/orders"
+                  element={
+                    <AdminRoute>
+                      <OrderListScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
+
+                <Route
+                  path="/admin/product/:id"
+                  element={
+                    <AdminRoute>
+                      <ProductEditScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
+
                 <Route path="/" element={<HomeScreen />} />
               </Routes>
             </Container>
