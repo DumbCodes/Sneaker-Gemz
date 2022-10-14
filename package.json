@@ -1,0 +1,24 @@
+{
+  "name": "sneaker-gemz",
+  "version": "1.0.0",
+  "description": "<h1>Sneakr Gemz</h1>",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install --force && cd ../frontend && npm install --force && npm run build --force",
+    "start": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DumbCodes/Sneaker-Gemz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DumbCodes/Sneaker-Gemz/issues"
+  },
+  "homepage": "https://github.com/DumbCodes/Sneaker-Gemz#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
