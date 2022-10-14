@@ -20,7 +20,8 @@ main {
   color: white;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-outline-primary {
   background-color: black;
   border: none;
 }
@@ -97,9 +98,36 @@ img.logo {
   color: white;
 }
 .pagenumber {
-  background-color:  white;
+  background-color: white;
 }
 
 .form-label {
   color: white;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* sidebar */
+.navbar-brand {
+  font-weight: bold;
+}
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+.active-cont {
+  margin-left: 240px;
+}
+.active-nav {
+  left: 0;
 }

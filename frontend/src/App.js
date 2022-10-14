@@ -1,6 +1,6 @@
 import { MDBFooter, MDBContainer, MDBIcon } from 'mdb-react-ui-kit';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -10,7 +10,7 @@ import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Store } from './Store';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
@@ -35,6 +35,12 @@ import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen.js';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
+import Button from 'react-bootstrap/Button';
+import { getError } from './util';
+import axios from 'axios';
+import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
+import UserEditScreen from './screens/UserEditScreen';
 
 const AppJsContainer = styled.div``;
 
@@ -74,7 +80,7 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 
-const Button = styled.button`
+const Buttonn = styled.button`
   background: none;
   border: none;
   margin-right: 1em;
@@ -91,12 +97,39 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, []);
   return (
     <BrowserRouter>
-      <AppJsContainer className="d-flex flex-column site-container">
+      <AppJsContainer
+        className={
+          sidebarIsOpen
+            ? 'd-flex flex-column site-container active-cont'
+            : 'd-flex flex-column site-container'
+        }
+      >
         <ToastContainer position="bottom-center" limit={1} />
         <NavigationBar>
           <Navbar bg="dark" variant="dark">
+            <Button
+              variant="dark"
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+            >
+              <i className="fas fa-bars"></i>
+            </Button>
+
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>
@@ -110,6 +143,8 @@ function App() {
 
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
+                <SearchBox />
+
                 <Nav className="me-auto  w-100  justify-content-end">
                   <NavItem>
                     <Link to="/" className="nav-link">
@@ -191,17 +226,41 @@ function App() {
         <Link to="/announcement">
           <Announcement>
             <marquee scrollamount="20" behavior="scroll">
-              <Button>New Product Release Date Announced. ! .</Button>
-              <Button>Checkout new upcoming products.</Button>
+              <Buttonn>New Product Release Date Announced. ! .</Buttonn>
+              <Buttonn>Checkout new upcoming products.</Buttonn>
             </marquee>
           </Announcement>
         </Link>
+        <div
+          className={
+            sidebarIsOpen
+              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+          }
+        >
+          <Nav className="flex-column text-white w-100 p-2">
+            <Nav.Item>
+              <strong>Categories</strong>
+            </Nav.Item>
+            {categories.map((category) => (
+              <Nav.Item key={category}>
+                <LinkContainer
+                  to={`/search?category=${category}`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  <Nav.Link>{category}</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+            ))}
+          </Nav>
+        </div>
         <MainContainer>
           <RoutesContainer>
             <Container className="mt-5">
               <Routes>
                 <Route path="/product/:aka" element={<ProductScreen />} />
                 <Route path="/cart" element={<CartScreen />} />
+                <Route path="/search" element={<SearchScreen />} />
                 <Route path="/signin" element={<LoginScreen />} />
                 <Route path="/signup" element={<RegisterScreen />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
@@ -290,6 +349,15 @@ function App() {
                   element={
                     <AdminRoute>
                       <ProductEditScreen />
+                    </AdminRoute>
+                  }
+                ></Route>
+
+                <Route
+                  path="/admin/user/:id"
+                  element={
+                    <AdminRoute>
+                      <UserEditScreen />
                     </AdminRoute>
                   }
                 ></Route>
